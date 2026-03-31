@@ -30,6 +30,7 @@ jobs:
       # 3. Chạy test (có truyền secrets)
       - name: Run Selenium Test
         run: mvn clean test -Dbrowser=${{ matrix.browser }}
+        working-directory: lab_9
         env:
           APP_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
           APP_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
