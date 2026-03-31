@@ -18,5 +18,5 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Run Selenium Test
+      - name: Run test
         run: mvn clean test -Dbrowser=chrome
