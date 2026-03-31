@@ -2,12 +2,17 @@ name: Selenium Test Suite
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
+      fail-fast: false
 
     steps:
       - name: Checkout code
@@ -20,4 +25,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Run test
-        run: mvn clean test -Dbrowser=chrome
+        run: mvn clean test -Dbrowser=${{ matrix.browser }}
